@@ -1,0 +1,718 @@
+/* ==========================================================
+   The Study Cup · Campus Café
+   css/style.css — hand-written, mobile-first
+   Breakpoints: phone (base), tablet 640px, desktop 960px
+   ========================================================== */
+
+/* ---------- 1. Design tokens (CSS variables) ---------- */
+:root {
+  /* colors */
+  --color-bg: #fbf5ec;
+  --color-surface: #ffffff;
+  --color-cream: #f2e3ce;
+  --color-text: #2b1b14;
+  --color-muted: #5e4a3f;
+  --color-primary: #3b2418;
+  --color-accent: #b5472a;
+  --color-accent-dark: #8f351d;
+  --color-sage: #5f7a52;
+  --color-border: #dcc9b0;
+  --color-field-border: #8a7360;
+  --color-focus: #1b5e9e;
+  --color-focus-on-dark: #ffd98a;
+  --color-error: #b3261e;
+
+  /* fonts */
+  --font-body: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+
+  /* shape + spacing */
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 6px 18px rgba(59, 36, 24, 0.12);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --max-width: 1100px;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+h1 {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(2rem, 6vw, 3.4rem);
+}
+
+h2 {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+h3 {
+  margin: 0 0 var(--space-1);
+  font-size: 1.25rem;
+}
+
+p {
+  margin: 0 0 var(--space-2);
+}
+
+a {
+  color: var(--color-accent-dark);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--color-primary);
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.container {
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
+}
+
+/* skip link (keyboard users) */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  transition: top 0.15s;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- 3. Header + navigation (Flexbox) ---------- */
+.site-header {
+  background: var(--color-primary);
+  color: var(--color-cream);
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  padding-block: var(--space-2);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  color: #fff;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--color-focus-on-dark);
+}
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.brand-sub {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-cream);
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  color: var(--color-cream);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.nav-list a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+/* current page is clear: filled pill */
+.nav-list a[aria-current="page"] {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.site-header :focus-visible,
+.site-footer :focus-visible {
+  outline-color: var(--color-focus-on-dark);
+}
+
+/* ---------- 4. Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--color-accent);
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, transform 0.15s;
+}
+
+.btn:hover {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-accent-dark);
+}
+
+.btn-outline:hover {
+  background: var(--color-accent-dark);
+  color: #fff;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+/* ---------- 5. Hero + page headers ---------- */
+.hero {
+  padding-block: var(--space-4);
+  background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-bg) 100%);
+}
+
+.hero-grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.eyebrow {
+  margin-bottom: var(--space-1);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--color-muted);
+}
+
+.page-header {
+  padding-block: var(--space-4) var(--space-3);
+  background: var(--color-cream);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.page-header p {
+  max-width: 60ch;
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
+/* ---------- 6. Sections ---------- */
+.section {
+  padding-block: var(--space-4);
+}
+
+.section-alt {
+  background: var(--color-cream);
+}
+
+.section-intro {
+  max-width: 60ch;
+  color: var(--color-muted);
+}
+
+/* ---------- 7. Cards (Grid for the grid, Flexbox inside each card) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(59, 36, 24, 0.18);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--space-3);
+}
+
+.card-body p {
+  flex: 1;
+}
+
+.card-body .role {
+  flex: none;
+}
+
+.card-body a {
+  font-weight: 700;
+}
+
+.tag {
+  align-self: flex-start;
+  margin-bottom: var(--space-1);
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  background: var(--color-sage);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* feature blocks (plain, no image) */
+.feature {
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border-left: 6px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+}
+
+.feature p {
+  margin-bottom: 0;
+}
+
+/* ---------- 8. Figures + media ---------- */
+figure {
+  margin: 0;
+}
+
+figure img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+figcaption {
+  padding-top: 0.6rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+audio {
+  display: block;
+  width: 100%;
+}
+
+.media-card {
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.media-card figcaption {
+  font-style: normal;
+}
+
+/* two-column split used on About page (Grid) */
+.split {
+  display: grid;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+/* ---------- 9. Menu list ---------- */
+.menu-heading {
+  padding-bottom: var(--space-1);
+  border-bottom: 3px solid var(--color-accent);
+}
+
+.menu-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.menu-item {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.menu-item:hover {
+  border-color: var(--color-accent);
+  background: #fffaf3;
+}
+
+.menu-item h3 {
+  margin-bottom: 0.25rem;
+}
+
+.menu-item p {
+  margin-bottom: 0.5rem;
+  color: var(--color-muted);
+}
+
+.menu-item .tag {
+  margin-bottom: 0;
+}
+
+.note {
+  margin-top: var(--space-3);
+  padding: var(--space-2);
+  background: var(--color-cream);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+}
+
+/* ---------- 10. Table (hours) ---------- */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+}
+
+caption {
+  padding-bottom: var(--space-1);
+  text-align: left;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+thead th {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background: #fdf8f0;
+}
+
+tbody tr:hover {
+  background: var(--color-cream);
+}
+
+/* ---------- 11. Team ---------- */
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.role {
+  margin-bottom: var(--space-1);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-sage);
+}
+
+/* ---------- 12. Contact page + form ---------- */
+.contact-layout {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.form-card {
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* fields are stacked on every screen size */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-weight: 700;
+}
+
+.req {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid var(--color-field-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-text);
+  font: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 9rem;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--color-accent);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid transparent; /* keeps a visible ring in forced-colors mode */
+  border-color: var(--color-focus);
+  box-shadow: 0 0 0 4px rgba(27, 94, 158, 0.3);
+}
+
+input:user-invalid,
+textarea:user-invalid {
+  border-color: var(--color-error);
+}
+
+.contact-form .btn {
+  justify-self: stretch;
+}
+
+.info-card {
+  padding: var(--space-3);
+  background: var(--color-cream);
+  border-radius: var(--radius);
+}
+
+.info-card address {
+  font-style: normal;
+}
+
+.info-card ul {
+  margin: 0 0 var(--space-2);
+  padding-left: 1.2rem;
+}
+
+/* ---------- 13. Footer ---------- */
+.site-footer {
+  padding-block: var(--space-3);
+  background: var(--color-primary);
+  color: var(--color-cream);
+  font-size: 0.95rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer-inner p {
+  margin: 0;
+}
+
+.footer-inner ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer a {
+  color: var(--color-focus-on-dark);
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+/* ---------- 14. Tablet (640px and up) ---------- */
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-form .btn {
+    justify-self: start;
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* ---------- 15. Desktop (960px and up) ---------- */
+@media (min-width: 960px) {
+  .header-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero {
+    padding-block: var(--space-5);
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  .contact-layout {
+    grid-template-columns: 1.4fr 0.8fr;
+    align-items: start;
+  }
+}
+
+/* ---------- 16. Respect reduced-motion settings ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

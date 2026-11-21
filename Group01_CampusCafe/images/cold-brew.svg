@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#f2e3ce"/>
+  <rect x="0" y="262" width="400" height="38" fill="#5a3a28"/>
+  <!-- straw -->
+  <path d="M232 16 L206 196" fill="none" stroke="#b5472a" stroke-width="10" stroke-linecap="round"/>
+  <!-- coffee -->
+  <path d="M147 100 h106 l-10 142 q-1 12 -14 12 h-58 q-13 0 -14 -12z" fill="#4a2c1c"/>
+  <path d="M148 102 q26 22 52 0 t52 0 v16 q-26 24 -52 0 t-52 0z" fill="#e8cfae" opacity="0.9"/>
+  <!-- ice -->
+  <g fill="#ffffff" fill-opacity="0.55" stroke="#ffffff" stroke-opacity="0.8" stroke-width="2">
+    <rect x="160" y="142" width="36" height="36" rx="6" transform="rotate(12 178 160)"/>
+    <rect x="204" y="166" width="36" height="36" rx="6" transform="rotate(-10 222 184)"/>
+    <rect x="168" y="196" width="34" height="34" rx="6" transform="rotate(-6 185 213)"/>
+  </g>
+  <!-- glass outline -->
+  <path d="M140 48 h120 l-14 192 q-1 16 -16 16 h-60 q-15 0 -16 -16z" fill="#ffffff" fill-opacity="0.2" stroke="#cbb79c" stroke-width="4"/>
+  <!-- orange slice -->
+  <g transform="translate(268 58)">
+    <circle r="28" fill="#f4a53c" stroke="#e8892a" stroke-width="4"/>
+    <circle r="20" fill="#ffc46b"/>
+    <g stroke="#f4a53c" stroke-width="3">
+      <line x1="0" y1="-20" x2="0" y2="20"/>
+      <line x1="-20" y1="0" x2="20" y2="0"/>
+      <line x1="-14" y1="-14" x2="14" y2="14"/>
+      <line x1="14" y1="-14" x2="-14" y2="14"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
+  <defs>
+    <g id="cup">
+      <path d="M440 310 h64 v14 q0 36 -32 36 q-32 0 -32 -36z" fill="#ffffff" stroke="#d9c3a5" stroke-width="3"/>
+      <path d="M504 320 q24 0 24 16 q0 16 -22 16" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+      <ellipse cx="472" cy="311" rx="32" ry="6" fill="#7a4a2a"/>
+      <path d="M462 298 q-8 -10 0 -18 q8 -8 0 -16" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+      <path d="M482 298 q-8 -10 0 -18 q8 -8 0 -16" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+    </g>
+  </defs>
+
+  <!-- wall -->
+  <rect width="800" height="560" fill="#f2e3ce"/>
+
+  <!-- window -->
+  <rect x="50" y="60" width="270" height="230" rx="10" fill="#cfe5ea" stroke="#3b2418" stroke-width="10"/>
+  <circle cx="250" cy="115" r="30" fill="#ffe08a"/>
+  <path d="M55 285 Q120 215 185 255 T315 240 V285 Z" fill="#9db98f"/>
+  <line x1="185" y1="60" x2="185" y2="290" stroke="#3b2418" stroke-width="8"/>
+  <line x1="50" y1="175" x2="320" y2="175" stroke="#3b2418" stroke-width="8"/>
+
+  <!-- hanging lamps -->
+  <g stroke="#3b2418" stroke-width="4">
+    <line x1="460" y1="0" x2="460" y2="95"/>
+    <line x1="560" y1="0" x2="560" y2="95"/>
+    <line x1="660" y1="0" x2="660" y2="95"/>
+  </g>
+  <g fill="#b5472a">
+    <path d="M428 135 Q460 65 492 135 Z"/>
+    <path d="M528 135 Q560 65 592 135 Z"/>
+    <path d="M628 135 Q660 65 692 135 Z"/>
+  </g>
+  <g fill="#ffe08a">
+    <circle cx="460" cy="142" r="13"/>
+    <circle cx="560" cy="142" r="13"/>
+    <circle cx="660" cy="142" r="13"/>
+  </g>
+
+  <!-- chalkboard -->
+  <rect x="420" y="165" width="330" height="90" rx="8" fill="#2b3a33" stroke="#b07a45" stroke-width="8"/>
+  <text x="585" y="208" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#ffffff">Today's brew</text>
+  <text x="585" y="237" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#f2e3ce">Brown sugar oat latte</text>
+
+  <!-- counter -->
+  <rect x="0" y="380" width="800" height="180" fill="#3b2418"/>
+  <rect x="0" y="360" width="800" height="26" fill="#5a3a28"/>
+  <g stroke="#5a3a28" stroke-width="4">
+    <line x1="0" y1="440" x2="800" y2="440"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+  </g>
+
+  <!-- cups -->
+  <use href="#cup" x="0" y="0"/>
+  <use href="#cup" x="130" y="0"/>
+
+  <!-- plant -->
+  <path d="M95 360 h60 l-8 -50 h-44z" fill="#b5472a"/>
+  <g fill="#5f7a52">
+    <ellipse cx="125" cy="265" rx="14" ry="46"/>
+    <ellipse cx="125" cy="265" rx="14" ry="46" transform="rotate(-38 125 310)"/>
+    <ellipse cx="125" cy="265" rx="14" ry="46" transform="rotate(38 125 310)"/>
+  </g>
+</svg>
